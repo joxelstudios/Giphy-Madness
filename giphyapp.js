@@ -1,4 +1,4 @@
-var searchTerms = ["Mecha", "Anime-SciFi", "Space", "Super-Soldier"];
+var searchTerms = ["Mecha", "Sci-Fi Anime", "Space", "Vapor Wave", "Aesthetics"];
 var currentTerm = [];
 
 function renderButtons() {
