@@ -21,4 +21,4 @@ Interested in where I got the Giphy API key? You can get one here:
 
 ### See it in action below
 
-![screenshot](screenshot.gif);
+![screenshot](Screenshot.gif);
