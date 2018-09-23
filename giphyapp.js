@@ -38,7 +38,7 @@ function displayGifs(){
     var key= "dCt58iU9cjK1eHloafbWL4RlKzFLWU2J"
 
     $.ajax({
-        url: "http://api.giphy.com/v1/gifs/search?q="+ term +"&api_key="+key+"&limit=10&rating=pg",
+        url: "https://api.giphy.com/v1/gifs/search?q="+ term +"&api_key="+key+"&limit=10&rating=pg",
         method: "GET"
     }).then(function(resp){
         console.log(resp);
@@ -46,7 +46,7 @@ function displayGifs(){
             console.log(gif);
             var imgURL= gif.images.original.url;
             console.log(imgURL);
-            var img = $('<img width="300px">');
+            var img = $('<img class="gif" width="300px">');
             img.attr('src', imgURL);
             img.attr('alt', term+'-gif');
             $('.gifDiv').prepend(img);
@@ -58,3 +58,18 @@ function displayGifs(){
 renderButtons();
 
 $(document).on('click', ".searchTerm", displayGifs);
+
+
+$(document).on('click', ".gif", function(){
+    let animate = $(this).url;
+      let still = $(this).images.fixed_width_still.url;
+      console.log($(this).images.fixed_width_still.url);
+      if (state === 'still') {
+        $(this).attr('src', animate);
+        $(this).attr('data-state', 'animate');
+      } else if (state === 'animate') {
+        $(this).attr('src', still);
+        $(this).attr('data-state', 'still');
+      }
+
+});
